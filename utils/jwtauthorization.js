@@ -5,7 +5,7 @@ require('dotenv').config();
 module.exports = function (req,res,next){
     const token = req.headers?.authorization?.split(" ").pop();
     if(!token){
-        return res.status(403).json({msg:"invalid token!"})
+        return res.status(403).json({msg:"no token!"})
     }
     jwt.verify(token, process.env.JWT_SECRET, (err,data)=>{
         if(err){
