@@ -9,7 +9,7 @@ module.exports = function (req,res,next){
     }
     jwt.verify(token, process.env.JWT_SECRET, (err,data)=>{
         if(err){
-            return res.status(403).json({msg:"invalid token!"})
+            return res.status(403).json({msg:"no token!"})
         }
         req.user=data.id
         console.log(req.user, "plzzzzzzzzzzzzz")
